@@ -83,6 +83,7 @@
             this.btnMoveToReq.TabIndex = 5;
             this.btnMoveToReq.Text = "Move";
             this.btnMoveToReq.UseVisualStyleBackColor = true;
+            this.btnMoveToReq.Click += new System.EventHandler(this.btnMoveToReq_Click);
             // 
             // btnCDelete
             // 

@@ -243,6 +243,18 @@ namespace TevinHamilton_CodeExercise1_EventHandlers
             list.Text = args.ToString();
             list.Tag = args;
             lswRequired.Items.Add(list);
+            lswComplete.SelectedItems[0].Remove();
+        }
+
+        private void btnMoveToReq_Click(object sender, EventArgs e)
+        {
+
+            CharArgs args = (CharArgs)lswRequired.SelectedItems[0].Tag;
+            ListViewItem list = new ListViewItem();
+            list.Text = args.ToString();
+            list.Tag = args;
+            lswComplete.Items.Add(list);
+            lswRequired.SelectedItems[0].Remove();
         }
     }
 }
