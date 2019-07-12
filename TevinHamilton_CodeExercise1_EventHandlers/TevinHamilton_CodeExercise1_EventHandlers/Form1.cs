@@ -7,15 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace TevinHamilton_CodeExercise1_EventHandlers
 {
     public partial class Form1 : Form
     {
+        public event EventHandler<CharArgs> LoadUserInput;
+        List<UserData> completeList;
+        List<UserData> requiredList;
         public Form1()
         {
             InitializeComponent();
             HandleClientWindowSize();
+            completeList = new List<UserData>();
+            requiredList = new List<UserData>();
         }
         void HandleClientWindowSize()
         {
@@ -33,90 +39,214 @@ namespace TevinHamilton_CodeExercise1_EventHandlers
             this.Size = new Size(width, height);
             //this.Size = new Size(376, 720);
         }
+        public void AddToCompleteListview(object sender, CharArgs e)
+        {
+            ListViewItem lvi = new ListViewItem();
+            // make a new user data object 
+            UserData data = new UserData();
+            data.Name = e.Name;
+            data.Summery = e.Summery;
+            data.Credits = e.Credits;
+            //
+            lvi.Text = data.ToString();
+            //
+            lvi.Tag = data;
+            //
+            lswComplete.Items.Add(lvi);
+            //
 
-        private void btnCAdd_Click(object sender, EventArgs e)
+        }
+        public void AddToRequired(object sender, CharArgs e)
+        {
+            ListViewItem lvi = new ListViewItem();
+            // make a new user data object 
+            UserData data = new UserData();
+            data.Name = e.Name;
+            data.Summery = e.Summery;
+            data.Credits = e.Credits;
+            //
+            lvi.Text = data.ToString();
+            //
+            lvi.Tag = data;
+            //
+            lswRequired.Items.Add(lvi);
+            //
+        }
+        public void UpdateCompelteListView(object sender, CharArgs e)
+        {
+            UserData data = new UserData();
+            data.Name = e.Name;
+            data.Summery = e.Summery;
+            data.Credits = e.Credits;
+            lswComplete.SelectedItems[0].Tag = data;
+        }
+
+        public void updateRequiredListview(object sender, CharArgs e)
+        {
+            UserData data = new UserData();
+            data.Name = e.Name;
+            data.Summery = e.Summery;
+            data.Credits = e.Credits;
+            lswRequired.SelectedItems[0].Tag = data;
+        }
+
+        public  void btnCAdd_Click(object sender, EventArgs e)
         {
             // create a new userinput
-            UserInput newUser = new UserInput(false);
+            UserInput newUser = new UserInput();
             // subcrition to the event handleer 
-            newUser.AddToMainForm += AddToMainForm;
+            newUser.AddToComplete += AddToCompleteListview;
+           
             //model form 
-            newUser.ShowDialog();
+            newUser.Show();
         }
 
         private void btnCEdit_Click(object sender, EventArgs e)
         {
-            UserInput newUser = new UserInput(true);
-            FillUserInput += newUser.FillUserInput;
-            newUser.UpdateSelected += UpdateSelected;
-            newUser.AddToMainForm += AddToMainForm;
-            if (FillUserInput != null)
+            // create a new userinput
+            UserInput newUser = new UserInput();
+            // subcrition to the event handleer 
+            newUser.EditComplete += UpdateCompelteListView;
+            LoadUserInput += newUser.PopulateUserData;
+            //model form 
+            newUser.Show();
+            if (LoadUserInput!=null)
             {
-                ChangeEventArgs change = (ChangeEventArgs)lvwShips.SelectedItems[0].Tag;
-                // subscribe to the method in the userinput form.
-                // FillUserInput += newUser.FillUserInput;
-                FillUserInput(this, change);
-                // show as model
-                newUser.ShowDialog();
+                CharArgs args = new CharArgs();
+                args =(CharArgs)lswComplete.SelectedItems[0].Tag;
+                LoadUserInput(this, args);
+            }
+        }
+        //remove from completed list view.
+        private void btnCDelete_Click(object sender, EventArgs e)
+        {
+            lswComplete.SelectedItems[0].Remove();
+        }
+
+
+        private void btnREdit_Click(object sender, EventArgs e)
+        {
+            // create a new userinput
+            UserInput newUser = new UserInput();
+            // subcrition to the event handleer 
+            newUser.EditRequired += updateRequiredListview;
+            //model form 
+            newUser.Show();
+
+        }
+        //remove from selecetd listview.
+        private void btnRDelete_Click(object sender, EventArgs e)
+        {
+            lswRequired.SelectedItems[0].Remove();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //create a ne SaveFileDialog object.
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Text File | *.txt";
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter writer = new StreamWriter(save.OpenFile());
+                writer.WriteLine("Complete List");
+                //Loop threw the list based on the number of objects inside the list.
+                for (int i = 0; i < completeList.Count; i++)
+                {
+
+                    writer.WriteLine(completeList[i].Name);
+                    writer.WriteLine(completeList[i].Summery);
+                    writer.WriteLine(completeList[i].Credits);
+
+                }
+                writer.WriteLine("Required List");
+                for (int i = 0; i < requiredList.Count; i++)
+                {
+
+                    writer.WriteLine(completeList[i].Name);
+                    writer.WriteLine(completeList[i].Summery);
+                    writer.WriteLine(completeList[i].Credits);
+
+                }
+
+                //Close writer
+                writer.Close();
             }
         }
 
-        private void btnCDelete_Click(object sender, EventArgs e)
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //create a new instance of openfiledialog
+            OpenFileDialog theDialog = new OpenFileDialog();
+            theDialog.Title = "Open Text File";
+            theDialog.Filter = "TXT files|*.txt";
+            theDialog.InitialDirectory = @"C:\";
+            if (theDialog.ShowDialog() == DialogResult.OK)
+            {
+                //clear lists and listview in main form
+                completeList.Clear();
+                requiredList.Clear();
+                lswComplete.Clear();
+                lswRequired.Clear();
 
+                try
+                {
+                    using (StreamReader sr = new StreamReader(theDialog.FileName))
+                    {
+
+                        while (sr.ReadLine() != null)
+                        {
+                            while (sr.ReadLine() == "Required List")
+                            {
+                                UserData comData = new UserData();
+                                comData.Name = sr.ReadLine();
+                                comData.Summery = sr.ReadLine();
+                                comData.Credits = decimal.Parse(sr.ReadLine());
+                                completeList.Add(comData);
+                                ListViewItem lviCom = new ListViewItem();
+                                lviCom.Text = comData.ToString();
+                                lviCom.Tag = completeList ;
+                                lswRequired.Items.Add(lviCom);
+                            }
+                            UserData reqData = new UserData();
+                            reqData.Name = sr.ReadLine();
+                            reqData.Summery = sr.ReadLine();
+                            reqData.Credits = decimal.Parse(sr.ReadLine());
+                            requiredList.Add(reqData);
+                            ListViewItem lviReq = new ListViewItem();
+                            lviReq.Text = reqData.ToString();
+                            lviReq.Tag = reqData;
+                            lswRequired.Items.Add(lviReq);
+                            
+                        }
+                        //close StreamReader
+                        sr.Close();
+                        
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    // send user a error message if they cant open it.
+                    MessageBox.Show("selected file is not a Stock File or File is empty");
+                }
+            }
+        }
+
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void btnRAdd_Click(object sender, EventArgs e)
         {
             // create a new userinput
-            UserInput newUser = new UserInput(false);
+            UserInput newUser = new UserInput();
             // subcrition to the event handleer 
-            newUser.AddToMainForm += AddToMainForm;
+            newUser.AddToRequired+= AddToRequired;
+
             //model form 
-            newUser.ShowDialog();
-        }
-
-        private void btnREdit_Click(object sender, EventArgs e)
-        {
-            UserInput newUser = new UserInput(true);
-            FillUserInput += newUser.FillUserInput;
-            newUser.UpdateSelected += UpdateSelected;
-            newUser.AddToMainForm += AddToMainForm;
-            if (FillUserInput != null)
-            {
-                ChangeEventArgs change = (ChangeEventArgs)lvwShips.SelectedItems[0].Tag;
-                // subscribe to the method in the userinput form.
-                // FillUserInput += newUser.FillUserInput;
-                FillUserInput(this, change);
-                // show as model
-                newUser.ShowDialog();
-            }
-        }
-
-        private void btnRDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-        public void AddToMainForm(object sender, ChangeEventArgs e)
-        {
-            // create a new list view
-            ListViewItem lvi = new ListViewItem();
-            //assign values to the lvi and add it to list view
-            lvi.Text = e._shipName;
-            lvi.ImageIndex = e._shipIndex;
-            // use the tag property 
-            lvi.Tag = e;
-
-            lvwShips.Items.Add(lvi);
-            // add count objects that exist
-            objCount++;
-            txtCount.Text = objCount.ToString();
-        }
-        public void UpdateSelected(object sender, ChangeEventArgs e)
-        {
-            //update selected data
-            lvwShips.SelectedItems[0].ImageIndex = e._shipIndex;
-            lvwShips.SelectedItems[0].Text = e._shipName;
+            newUser.Show();
         }
     }
 }

@@ -31,13 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnMoveToReq = new System.Windows.Forms.Button();
             this.btnCEdit = new System.Windows.Forms.Button();
             this.btnCDelete = new System.Windows.Forms.Button();
             this.btnCAdd = new System.Windows.Forms.Button();
             this.lswComplete = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnMoveToCom = new System.Windows.Forms.Button();
             this.btnRDelete = new System.Windows.Forms.Button();
-            this.btnRAdd = new System.Windows.Forms.Button();
             this.btnREdit = new System.Windows.Forms.Button();
             this.lswRequired = new System.Windows.Forms.ListView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -45,6 +46,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRAdd = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -63,6 +65,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnMoveToReq);
             this.tabPage1.Controls.Add(this.btnCEdit);
             this.tabPage1.Controls.Add(this.btnCDelete);
             this.tabPage1.Controls.Add(this.btnCAdd);
@@ -75,9 +78,18 @@
             this.tabPage1.Text = "Complete";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnMoveToReq
+            // 
+            this.btnMoveToReq.Location = new System.Drawing.Point(24, 730);
+            this.btnMoveToReq.Name = "btnMoveToReq";
+            this.btnMoveToReq.Size = new System.Drawing.Size(513, 79);
+            this.btnMoveToReq.TabIndex = 5;
+            this.btnMoveToReq.Text = "Move";
+            this.btnMoveToReq.UseVisualStyleBackColor = true;
+            // 
             // btnCEdit
             // 
-            this.btnCEdit.Location = new System.Drawing.Point(24, 703);
+            this.btnCEdit.Location = new System.Drawing.Point(24, 623);
             this.btnCEdit.Name = "btnCEdit";
             this.btnCEdit.Size = new System.Drawing.Size(513, 79);
             this.btnCEdit.TabIndex = 4;
@@ -87,7 +99,7 @@
             // 
             // btnCDelete
             // 
-            this.btnCDelete.Location = new System.Drawing.Point(24, 827);
+            this.btnCDelete.Location = new System.Drawing.Point(24, 833);
             this.btnCDelete.Name = "btnCDelete";
             this.btnCDelete.Size = new System.Drawing.Size(513, 79);
             this.btnCDelete.TabIndex = 3;
@@ -97,7 +109,7 @@
             // 
             // btnCAdd
             // 
-            this.btnCAdd.Location = new System.Drawing.Point(24, 575);
+            this.btnCAdd.Location = new System.Drawing.Point(24, 511);
             this.btnCAdd.Name = "btnCAdd";
             this.btnCAdd.Size = new System.Drawing.Size(513, 79);
             this.btnCAdd.TabIndex = 1;
@@ -109,12 +121,13 @@
             // 
             this.lswComplete.Location = new System.Drawing.Point(6, 6);
             this.lswComplete.Name = "lswComplete";
-            this.lswComplete.Size = new System.Drawing.Size(560, 527);
+            this.lswComplete.Size = new System.Drawing.Size(560, 461);
             this.lswComplete.TabIndex = 0;
             this.lswComplete.UseCompatibleStateImageBehavior = false;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnMoveToCom);
             this.tabPage2.Controls.Add(this.btnRDelete);
             this.tabPage2.Controls.Add(this.btnRAdd);
             this.tabPage2.Controls.Add(this.btnREdit);
@@ -127,6 +140,15 @@
             this.tabPage2.Text = "Required";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnMoveToCom
+            // 
+            this.btnMoveToCom.Location = new System.Drawing.Point(30, 728);
+            this.btnMoveToCom.Name = "btnMoveToCom";
+            this.btnMoveToCom.Size = new System.Drawing.Size(513, 79);
+            this.btnMoveToCom.TabIndex = 5;
+            this.btnMoveToCom.Text = "Move";
+            this.btnMoveToCom.UseVisualStyleBackColor = true;
+            // 
             // btnRDelete
             // 
             this.btnRDelete.Location = new System.Drawing.Point(30, 827);
@@ -137,19 +159,9 @@
             this.btnRDelete.UseVisualStyleBackColor = true;
             this.btnRDelete.Click += new System.EventHandler(this.btnRDelete_Click);
             // 
-            // btnRAdd
-            // 
-            this.btnRAdd.Location = new System.Drawing.Point(30, 575);
-            this.btnRAdd.Name = "btnRAdd";
-            this.btnRAdd.Size = new System.Drawing.Size(513, 79);
-            this.btnRAdd.TabIndex = 2;
-            this.btnRAdd.Text = "Add";
-            this.btnRAdd.UseVisualStyleBackColor = true;
-            this.btnRAdd.Click += new System.EventHandler(this.btnRAdd_Click);
-            // 
             // btnREdit
             // 
-            this.btnREdit.Location = new System.Drawing.Point(30, 703);
+            this.btnREdit.Location = new System.Drawing.Point(30, 621);
             this.btnREdit.Name = "btnREdit";
             this.btnREdit.Size = new System.Drawing.Size(513, 79);
             this.btnREdit.TabIndex = 1;
@@ -161,7 +173,7 @@
             // 
             this.lswRequired.Location = new System.Drawing.Point(6, 6);
             this.lswRequired.Name = "lswRequired";
-            this.lswRequired.Size = new System.Drawing.Size(544, 537);
+            this.lswRequired.Size = new System.Drawing.Size(544, 471);
             this.lswRequired.TabIndex = 0;
             this.lswRequired.UseCompatibleStateImageBehavior = false;
             // 
@@ -189,20 +201,33 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(165, 38);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(165, 38);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
             this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 38);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // btnRAdd
+            // 
+            this.btnRAdd.Location = new System.Drawing.Point(30, 517);
+            this.btnRAdd.Name = "btnRAdd";
+            this.btnRAdd.Size = new System.Drawing.Size(513, 79);
+            this.btnRAdd.TabIndex = 2;
+            this.btnRAdd.Text = "Add";
+            this.btnRAdd.UseVisualStyleBackColor = true;
+            this.btnRAdd.Click += new System.EventHandler(this.btnRAdd_Click);
             // 
             // Form1
             // 
@@ -238,7 +263,6 @@
         private System.Windows.Forms.ListView lswComplete;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnRDelete;
-        private System.Windows.Forms.Button btnRAdd;
         private System.Windows.Forms.Button btnREdit;
         private System.Windows.Forms.ListView lswRequired;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -246,6 +270,9 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Button btnMoveToReq;
+        private System.Windows.Forms.Button btnMoveToCom;
+        private System.Windows.Forms.Button btnRAdd;
     }
 }
 

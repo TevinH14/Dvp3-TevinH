@@ -12,11 +12,16 @@ namespace TevinHamilton_CodeExercise1_EventHandlers
 {
     public partial class UserInput : Form
     {
+        public event EventHandler<CharArgs> AddToComplete;
+        public event EventHandler<CharArgs> AddToRequired;
+        public event EventHandler<CharArgs> EditComplete;
+        public event EventHandler<CharArgs> EditRequired;
         public UserInput()
         {
             InitializeComponent();
             HandleClientWindowSize();
         }
+
         void HandleClientWindowSize()
         {
             //Modify ONLY these float values
@@ -34,5 +39,42 @@ namespace TevinHamilton_CodeExercise1_EventHandlers
             //this.Size = new Size(376, 720);
         }
 
+        private void btnAddCom_Click(object sender, EventArgs e)
+        {
+            CharArgs args = new CharArgs();
+            args.Name = txtCourseName.Text;
+            args.Summery = txtxCourseDetails.Text;
+            args.Credits = numCreditHours.Value;
+            if (AddToComplete!=null)
+            {
+                AddToComplete(this, args);
+            }
+        }
+
+        private void BtnAddReq_Click(object sender, EventArgs e)
+        {
+            CharArgs args = new CharArgs();
+            args.Name = txtCourseName.Text;
+            args.Summery = txtxCourseDetails.Text;
+            args.Credits = numCreditHours.Value;
+            if (AddToComplete != null)
+            {
+                AddToRequired(this, args);
+            }
+            this.Close();
+        }
+
+        public void PopulateUserData(object sender, CharArgs e)
+        {
+            txtCourseName.Text = e.Name;
+            txtxCourseDetails.Text = e.Summery;
+            numCreditHours.Value = e.Credits;
+        }
+
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

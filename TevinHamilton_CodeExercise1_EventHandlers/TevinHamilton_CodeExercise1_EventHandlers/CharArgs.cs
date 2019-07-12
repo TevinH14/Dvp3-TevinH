@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TevinHamilton_CodeExercise1_EventHandlers
 {
-    class CharArgs:EventArgs
+    public class CharArgs:EventArgs
     {
         public string Name { get; set; }
         public string Summery { get; set; }
