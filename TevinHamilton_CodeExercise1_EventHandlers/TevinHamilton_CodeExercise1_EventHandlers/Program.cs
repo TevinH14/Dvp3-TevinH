@@ -6,6 +6,12 @@ using System.Windows.Forms;
 
 namespace TevinHamilton_CodeExercise1_EventHandlers
 {
+    /*
+    * Tevin Hamilton
+    * dvp3
+    * code assignmet 1 
+    * 1907
+    */
     static class Program
     {
         /// <summary>

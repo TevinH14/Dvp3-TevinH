@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace TevinHamilton_CodeExercise1_EventHandlers
 {
+    /*
+    * Tevin Hamilton
+    * dvp3
+    * code assignmet 1 
+    * 1907
+    */
     public class CharArgs:EventArgs
     {
         public string Name { get; set; }
