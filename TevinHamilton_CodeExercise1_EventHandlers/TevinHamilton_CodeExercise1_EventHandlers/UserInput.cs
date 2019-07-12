@@ -45,10 +45,7 @@ namespace TevinHamilton_CodeExercise1_EventHandlers
             args.Name = txtCourseName.Text;
             args.Summery = txtxCourseDetails.Text;
             args.Credits = numCreditHours.Value;
-            if (AddToComplete!=null)
-            {
-                AddToComplete(this, args);
-            }
+            AddToComplete?.Invoke(this, args);
         }
 
         private void BtnAddReq_Click(object sender, EventArgs e)

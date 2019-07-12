@@ -43,14 +43,11 @@ namespace TevinHamilton_CodeExercise1_EventHandlers
         {
             ListViewItem lvi = new ListViewItem();
             // make a new user data object 
-            UserData data = new UserData();
-            data.Name = e.Name;
-            data.Summery = e.Summery;
-            data.Credits = e.Credits;
+            
             //
-            lvi.Text = data.ToString();
+            lvi.Text = e.ToString();
             //
-            lvi.Tag = data;
+            lvi.Tag = e;
             //
             lswComplete.Items.Add(lvi);
             //
@@ -59,15 +56,11 @@ namespace TevinHamilton_CodeExercise1_EventHandlers
         public void AddToRequired(object sender, CharArgs e)
         {
             ListViewItem lvi = new ListViewItem();
-            // make a new user data object 
-            UserData data = new UserData();
-            data.Name = e.Name;
-            data.Summery = e.Summery;
-            data.Credits = e.Credits;
+            lvi.Text = e.ToString();
             //
-            lvi.Text = data.ToString();
+            lvi.Tag = e;
             //
-            lvi.Tag = data;
+            lswComplete.Items.Add(lvi);
             //
             lswRequired.Items.Add(lvi);
             //
@@ -101,22 +94,7 @@ namespace TevinHamilton_CodeExercise1_EventHandlers
             newUser.Show();
         }
 
-        private void btnCEdit_Click(object sender, EventArgs e)
-        {
-            // create a new userinput
-            UserInput newUser = new UserInput();
-            // subcrition to the event handleer 
-            newUser.EditComplete += UpdateCompelteListView;
-            LoadUserInput += newUser.PopulateUserData;
-            //model form 
-            newUser.Show();
-            if (LoadUserInput!=null)
-            {
-                CharArgs args = new CharArgs();
-                args =(CharArgs)lswComplete.SelectedItems[0].Tag;
-                LoadUserInput(this, args);
-            }
-        }
+        
         //remove from completed list view.
         private void btnCDelete_Click(object sender, EventArgs e)
         {
@@ -124,16 +102,7 @@ namespace TevinHamilton_CodeExercise1_EventHandlers
         }
 
 
-        private void btnREdit_Click(object sender, EventArgs e)
-        {
-            // create a new userinput
-            UserInput newUser = new UserInput();
-            // subcrition to the event handleer 
-            newUser.EditRequired += updateRequiredListview;
-            //model form 
-            newUser.Show();
-
-        }
+       
         //remove from selecetd listview.
         private void btnRDelete_Click(object sender, EventArgs e)
         {
@@ -247,6 +216,33 @@ namespace TevinHamilton_CodeExercise1_EventHandlers
 
             //model form 
             newUser.Show();
+        }
+
+        private void lswComplete_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            // create a new userinput
+            UserInput newUser = new UserInput();
+            // subcrition to the event handleer 
+            newUser.EditComplete += UpdateCompelteListView;
+            LoadUserInput += newUser.PopulateUserData;
+            //model form 
+            if (LoadUserInput != null)
+            {
+                CharArgs args = (CharArgs)lswComplete.SelectedItems[0].Tag;
+
+                LoadUserInput(this, args);
+            }
+            newUser.ShowDialog();
+           
+        }
+
+        private void btnMoveToCom_Click(object sender, EventArgs e)
+        {
+            CharArgs args = (CharArgs)lswComplete.SelectedItems[0].Tag;
+            ListViewItem list = new ListViewItem();
+            list.Text = args.ToString();
+            list.Tag = args;
+            lswRequired.Items.Add(list);
         }
     }
 }

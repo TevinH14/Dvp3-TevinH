@@ -32,21 +32,19 @@
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnMoveToReq = new System.Windows.Forms.Button();
-            this.btnCEdit = new System.Windows.Forms.Button();
             this.btnCDelete = new System.Windows.Forms.Button();
             this.btnCAdd = new System.Windows.Forms.Button();
             this.lswComplete = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnMoveToCom = new System.Windows.Forms.Button();
             this.btnRDelete = new System.Windows.Forms.Button();
-            this.btnREdit = new System.Windows.Forms.Button();
+            this.btnRAdd = new System.Windows.Forms.Button();
             this.lswRequired = new System.Windows.Forms.ListView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRAdd = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -66,7 +64,6 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.btnMoveToReq);
-            this.tabPage1.Controls.Add(this.btnCEdit);
             this.tabPage1.Controls.Add(this.btnCDelete);
             this.tabPage1.Controls.Add(this.btnCAdd);
             this.tabPage1.Controls.Add(this.lswComplete);
@@ -80,22 +77,12 @@
             // 
             // btnMoveToReq
             // 
-            this.btnMoveToReq.Location = new System.Drawing.Point(24, 730);
+            this.btnMoveToReq.Location = new System.Drawing.Point(24, 640);
             this.btnMoveToReq.Name = "btnMoveToReq";
             this.btnMoveToReq.Size = new System.Drawing.Size(513, 79);
             this.btnMoveToReq.TabIndex = 5;
             this.btnMoveToReq.Text = "Move";
             this.btnMoveToReq.UseVisualStyleBackColor = true;
-            // 
-            // btnCEdit
-            // 
-            this.btnCEdit.Location = new System.Drawing.Point(24, 623);
-            this.btnCEdit.Name = "btnCEdit";
-            this.btnCEdit.Size = new System.Drawing.Size(513, 79);
-            this.btnCEdit.TabIndex = 4;
-            this.btnCEdit.Text = "Edit";
-            this.btnCEdit.UseVisualStyleBackColor = true;
-            this.btnCEdit.Click += new System.EventHandler(this.btnCEdit_Click);
             // 
             // btnCDelete
             // 
@@ -124,13 +111,13 @@
             this.lswComplete.Size = new System.Drawing.Size(560, 461);
             this.lswComplete.TabIndex = 0;
             this.lswComplete.UseCompatibleStateImageBehavior = false;
+            this.lswComplete.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lswComplete_MouseDoubleClick);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnMoveToCom);
             this.tabPage2.Controls.Add(this.btnRDelete);
             this.tabPage2.Controls.Add(this.btnRAdd);
-            this.tabPage2.Controls.Add(this.btnREdit);
             this.tabPage2.Controls.Add(this.lswRequired);
             this.tabPage2.Location = new System.Drawing.Point(8, 39);
             this.tabPage2.Name = "tabPage2";
@@ -142,12 +129,13 @@
             // 
             // btnMoveToCom
             // 
-            this.btnMoveToCom.Location = new System.Drawing.Point(30, 728);
+            this.btnMoveToCom.Location = new System.Drawing.Point(30, 662);
             this.btnMoveToCom.Name = "btnMoveToCom";
             this.btnMoveToCom.Size = new System.Drawing.Size(513, 79);
             this.btnMoveToCom.TabIndex = 5;
             this.btnMoveToCom.Text = "Move";
             this.btnMoveToCom.UseVisualStyleBackColor = true;
+            this.btnMoveToCom.Click += new System.EventHandler(this.btnMoveToCom_Click);
             // 
             // btnRDelete
             // 
@@ -159,15 +147,15 @@
             this.btnRDelete.UseVisualStyleBackColor = true;
             this.btnRDelete.Click += new System.EventHandler(this.btnRDelete_Click);
             // 
-            // btnREdit
+            // btnRAdd
             // 
-            this.btnREdit.Location = new System.Drawing.Point(30, 621);
-            this.btnREdit.Name = "btnREdit";
-            this.btnREdit.Size = new System.Drawing.Size(513, 79);
-            this.btnREdit.TabIndex = 1;
-            this.btnREdit.Text = "Edit";
-            this.btnREdit.UseVisualStyleBackColor = true;
-            this.btnREdit.Click += new System.EventHandler(this.btnREdit_Click);
+            this.btnRAdd.Location = new System.Drawing.Point(30, 517);
+            this.btnRAdd.Name = "btnRAdd";
+            this.btnRAdd.Size = new System.Drawing.Size(513, 79);
+            this.btnRAdd.TabIndex = 2;
+            this.btnRAdd.Text = "Add";
+            this.btnRAdd.UseVisualStyleBackColor = true;
+            this.btnRAdd.Click += new System.EventHandler(this.btnRAdd_Click);
             // 
             // lswRequired
             // 
@@ -176,6 +164,7 @@
             this.lswRequired.Size = new System.Drawing.Size(544, 471);
             this.lswRequired.TabIndex = 0;
             this.lswRequired.UseCompatibleStateImageBehavior = false;
+            this.lswRequired.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lswComplete_MouseDoubleClick);
             // 
             // menuStrip1
             // 
@@ -201,33 +190,23 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(165, 38);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(165, 38);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(324, 38);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 38);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // btnRAdd
-            // 
-            this.btnRAdd.Location = new System.Drawing.Point(30, 517);
-            this.btnRAdd.Name = "btnRAdd";
-            this.btnRAdd.Size = new System.Drawing.Size(513, 79);
-            this.btnRAdd.TabIndex = 2;
-            this.btnRAdd.Text = "Add";
-            this.btnRAdd.UseVisualStyleBackColor = true;
-            this.btnRAdd.Click += new System.EventHandler(this.btnRAdd_Click);
             // 
             // Form1
             // 
@@ -257,13 +236,11 @@
 
         private System.Windows.Forms.TabControl TabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button btnCEdit;
         private System.Windows.Forms.Button btnCDelete;
         private System.Windows.Forms.Button btnCAdd;
         private System.Windows.Forms.ListView lswComplete;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnRDelete;
-        private System.Windows.Forms.Button btnREdit;
         private System.Windows.Forms.ListView lswRequired;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;

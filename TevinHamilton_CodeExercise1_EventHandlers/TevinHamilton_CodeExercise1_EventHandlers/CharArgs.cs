@@ -11,5 +11,10 @@ namespace TevinHamilton_CodeExercise1_EventHandlers
         public string Name { get; set; }
         public string Summery { get; set; }
         public decimal Credits { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
