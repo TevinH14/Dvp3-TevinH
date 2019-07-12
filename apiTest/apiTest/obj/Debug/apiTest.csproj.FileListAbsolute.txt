@@ -1,0 +1,13 @@
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\bin\Debug\apiTest.exe.config
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\bin\Debug\apiTest.exe
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\bin\Debug\apiTest.pdb
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\bin\Debug\Newtonsoft.Json.dll
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\bin\Debug\Newtonsoft.Json.xml
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\obj\Debug\apiTest.csprojAssemblyReference.cache
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\obj\Debug\apiTest.Form1.resources
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\obj\Debug\apiTest.Properties.Resources.resources
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\obj\Debug\apiTest.csproj.GenerateResource.cache
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\obj\Debug\apiTest.csproj.CoreCompileInputs.cache
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\obj\Debug\apiTest.csproj.CopyComplete
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\obj\Debug\apiTest.exe
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\apiTest\apiTest\obj\Debug\apiTest.pdb
