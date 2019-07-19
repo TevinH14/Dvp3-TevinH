@@ -1,0 +1,17 @@
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\bin\Debug\HamiltonTevin_Assignment2.exe.config
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\bin\Debug\HamiltonTevin_Assignment2.exe
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\bin\Debug\HamiltonTevin_Assignment2.pdb
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\bin\Debug\BouncyCastle.Crypto.dll
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\bin\Debug\Google.Protobuf.dll
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\bin\Debug\MySql.Data.dll
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\bin\Debug\Google.Protobuf.xml
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\bin\Debug\MySql.Data.xml
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\obj\Debug\HamiltonTevin_Assignment2.csprojAssemblyReference.cache
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\obj\Debug\HamiltonTevin_Assignment2.Form1.resources
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\obj\Debug\HamiltonTevin_Assignment2.Properties.Resources.resources
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\obj\Debug\HamiltonTevin_Assignment2.UserInputForm.resources
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\obj\Debug\HamiltonTevin_Assignment2.csproj.GenerateResource.cache
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\obj\Debug\HamiltonTevin_Assignment2.csproj.CoreCompileInputs.cache
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\obj\Debug\HamiltonTevin_Assignment2.csproj.CopyComplete
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\obj\Debug\HamiltonTevin_Assignment2.exe
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_Assignment2\HamiltonTevin_Assignment2\obj\Debug\HamiltonTevin_Assignment2.pdb

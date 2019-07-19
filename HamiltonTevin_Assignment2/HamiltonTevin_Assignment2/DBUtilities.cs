@@ -11,8 +11,8 @@ namespace HamiltonTevin_Assignment2
 {
     /* 
     * Tevin Hamilton
-    * term 1906
-    * CE_09
+    * term 1907
+    * assignment 2 
     */
     public static class DBUtilities
     {
@@ -33,7 +33,7 @@ namespace HamiltonTevin_Assignment2
             {
                 MessageBox.Show(e.ToString()); 
             }
-            return $"server={serverIP};uid=dbsAdmin;pwd=password;database=exampleDatabase;SslMode=none;port={port};";
+            return $"server={serverIP};uid=dbsAdmin;pwd=password;database=Series;SslMode=none;port={port};";
         }
 
         public static MySqlConnection connect(string myConnString) 
@@ -43,7 +43,7 @@ namespace HamiltonTevin_Assignment2
             {
                 conn.ConnectionString = myConnString;
                 conn.Open();
-                //MessageBox.Show("connect");
+                MessageBox.Show("connect");
             }
             catch (MySqlException e)
             {
