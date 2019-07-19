@@ -206,7 +206,7 @@ namespace HamiltonTevin_Assignment2
                     writer.WriteLine(movieCollection.Rows[i]["Publisher"].ToString());
                     writer.WriteLine(movieCollection.Rows[i]["Director"].ToString());
                     writer.WriteLine(movieCollection.Rows[i]["genre"].ToString());
-
+                    writer.WriteLine("");
                 }
                
 
