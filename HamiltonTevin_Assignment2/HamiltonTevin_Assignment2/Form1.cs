@@ -108,8 +108,11 @@ namespace HamiltonTevin_Assignment2
             lvi.Text = movie.ToString();
             // tag propertie
             lvi.Tag = movie;
+            lvi.ImageIndex = 0;
             //add to list view 
             lvwMovie.Items.Add(lvi);
+
+            
 
             //string to hold the sql statement
             string sql = "insert into SeriesTitles(Title,YearReleased,publisher,Director,genre) " +
@@ -127,18 +130,26 @@ namespace HamiltonTevin_Assignment2
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            UserInputForm inputForm = new UserInputForm();
-            //subcribe
-            inputForm.UpdateMovie += UpdateData;
-            LoadData += inputForm.PopulateData;
-            movieName = lvwMovie.SelectedItems[0].Text;
-            //event handler null check
-            if (LoadData != null)
+            try
             {
-                MovieArgs args = (MovieArgs)lvwMovie.SelectedItems[0].Tag;
-                LoadData(this, args);
+                UserInputForm inputForm = new UserInputForm();
+                //subcribe
+                inputForm.UpdateMovie += UpdateData;
+                LoadData += inputForm.PopulateData;
+                movieName = lvwMovie.SelectedItems[0].Text;
+                //event handler null check
+                if (LoadData != null)
+                {
+                    MovieArgs args = (MovieArgs)lvwMovie.SelectedItems[0].Tag;
+                    LoadData(this, args);
+                }
+                inputForm.ShowDialog();
             }
-            inputForm.ShowDialog();
+            catch (Exception)
+            {
+
+                MessageBox.Show("invalid selection");
+            }
 
         }
         public void UpdateData(object sender, MovieArgs e)
@@ -169,21 +180,30 @@ namespace HamiltonTevin_Assignment2
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //create a new instance of the movieargs fobject.
-            MovieArgs movie = (MovieArgs)lvwMovie.SelectedItems[0].Tag;
-            //sql statement to delete the data
-            string sql = "DELETE FROM SeriesTitles " +
-               $"where title = '{movie._title}';";
-            //open connection
-            conn.Open();
-            MySqlDataReader rdr = null;
-            // Prepare SQL Statement
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            // Execute SQL Statement and Convert Results to a String
-            rdr = cmd.ExecuteReader();
-            //close the connection
-            conn.Close();
-            lvwMovie.SelectedItems[0].Remove();
+            try
+            {
+                //create a new instance of the movieargs fobject.
+                MovieArgs movie = (MovieArgs)lvwMovie.SelectedItems[0].Tag;
+                //sql statement to delete the data
+                string sql = "DELETE FROM SeriesTitles " +
+                   $"where title = '{movie._title}';";
+                //open connection
+                conn.Open();
+                MySqlDataReader rdr = null;
+                // Prepare SQL Statement
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                // Execute SQL Statement and Convert Results to a String
+                rdr = cmd.ExecuteReader();
+                //close the connection
+                conn.Close();
+                lvwMovie.SelectedItems[0].Remove();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("invalid selection");
+            }
+            
 
         }
 
