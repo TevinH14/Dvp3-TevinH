@@ -186,5 +186,38 @@ namespace HamiltonTevin_Assignment2
             lvwMovie.SelectedItems[0].Remove();
 
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            //create a ne SaveFileDialog object.
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Text File | *.txt";
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter writer = new StreamWriter(save.OpenFile());
+                writer.WriteLine("MovieList");
+               
+                //Loop threw the list based on the number of objects inside the list.
+                for (int i = 0; i < movieCollection.Rows.Count; i++)
+                {
+                    writer.WriteLine(movieCollection.Rows[i]["Title"].ToString());
+                    writer.WriteLine(movieCollection.Rows[i]["YearReleased"].ToString());
+                    writer.WriteLine(movieCollection.Rows[i]["Publisher"].ToString());
+                    writer.WriteLine(movieCollection.Rows[i]["Director"].ToString());
+                    writer.WriteLine(movieCollection.Rows[i]["genre"].ToString());
+
+                }
+               
+
+                //Close writer
+                writer.Close();
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
