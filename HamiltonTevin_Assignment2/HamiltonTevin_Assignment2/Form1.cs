@@ -15,6 +15,24 @@ namespace HamiltonTevin_Assignment2
         public Form1()
         {
             InitializeComponent();
+            HandleClientWindowSize();
         }
+        void HandleClientWindowSize()
+        {
+            //Modify ONLY these float values
+            float HeightValueToChange = 1.4f;
+            float WidthValueToChange = 6.0f;
+
+            //DO NOT MODIFY THIS CODE
+            int height = Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Size.Height / HeightValueToChange);
+            int width = Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Size.Width / WidthValueToChange);
+            if (height < Size.Height)
+                height = Size.Height;
+            if (width < Size.Width)
+                width = Size.Width;
+            this.Size = new Size(width, height);
+            //this.Size = new Size(376, 720);
+        }
+
     }
 }
