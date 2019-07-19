@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace HamiltonTevin_Assignment2
 {
-   public  class MovieArgs: EventArgs
+   public class MovieArgs: EventArgs
    {
-        string _titel;
-        string _YearReleased;
-        string _publisher;
-        string _director;
-        string _genre;
+        public string _title;
+        public string _YearReleased;
+        public  string _publisher;
+        public string _director;
+        public string _genre;
 
         public MovieArgs(string t,string y,string p,string d,string g)
         {
-            _titel = t;
+            _title = t;
             _YearReleased = y;
             _publisher = p;
             _director = d;
@@ -24,7 +24,7 @@ namespace HamiltonTevin_Assignment2
         }
         public override string ToString()
         {
-            return _titel;
+            return _title;
         }
     }
 }
