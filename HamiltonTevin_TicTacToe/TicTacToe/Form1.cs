@@ -86,6 +86,11 @@ namespace TicTacToe
             player2Letter = "X";
         }
        
+        //private void WinnerCheck()
+        ////{
+        ////    bool winner = false
+        ////    If
+        //}
 
         private void r1c1button_Click(object sender, EventArgs e)
         {
@@ -121,22 +126,31 @@ namespace TicTacToe
 
             else
             {
-                if (player1Color == "Red" && player1Letter == "X")
+
+                if (player2Color == "Red" && player2Letter == "X")
                 {
+                    b.ImageList = redImages;
+                    b.ImageIndex = 1;
 
                 }
-                else if (player1Color == "Red" && player1Letter == "O")
+                else if (player2Color == "Red" && player2Letter == "O")
                 {
 
+                    b.ImageList = redImages;
+                    b.ImageIndex = 0;
                 }
-                else if (player1Color == "Blue" && player1Letter == "O")
+                else if (player2Color == "Blue" && player2Letter == "O")
                 {
 
+                    b.ImageList = blueImages;
+                    b.ImageIndex = 0;
                 }
-                else if (player1Color == "Blue" && player1Letter == "X")
+                else if (player2Color == "Blue" && player2Letter == "X")
                 {
-
+                    b.ImageList = blueImages;
+                    b.ImageIndex = 1;
                 }
+               
                 playerTurn = true;
 
             }
