@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Xml;
 
 namespace TicTacToe
 {
@@ -32,18 +34,26 @@ namespace TicTacToe
         */
 
         bool playerTurn = true;
-
+        string btnName = null;
         string player1Color = null;
         string player2Color = null;
         string player1Letter = null;
         string player2Letter = null;
-        ImageList player1image = null;
-        ImageList player2image = null;
+        List<string> playerOneList;
+        List<string> playerTwoList;
 
         public frmTicTacToe()
         {
             InitializeComponent();
-
+            r1c1button.Enabled = false;
+            r1c2button.Enabled = false;
+            r1c3button.Enabled = false;
+            r2c1button.Enabled = false;
+            r2c2button.Enabled = false;
+            r2c3button.Enabled = false;
+            r3c1button.Enabled = false;
+            r3c2button.Enabled = false;
+            r3c3button.Enabled = false;
         }
 
         private void loadGameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,7 +63,53 @@ namespace TicTacToe
 
         private void saveGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // instantiate the SaveFileDailog
+            SaveFileDialog dlg = new SaveFileDialog();
 
+            // we'll also set a default extension
+            dlg.DefaultExt = "xml";
+
+            // check to see if the user clicked OK
+            if (DialogResult.OK == dlg.ShowDialog())
+            {
+                // the first we'll do is create XmlWriterSettings
+                XmlWriterSettings settings = new XmlWriterSettings();
+                settings.ConformanceLevel = ConformanceLevel.Document;
+
+                // we'll also set the indent to true
+                settings.Indent = true;
+
+                // now it's time to create the XmlWriter
+                using (XmlWriter writer = XmlWriter.Create(dlg.FileName, settings))
+                {
+                    // the first element will define the data
+                    writer.WriteStartElement("SaveGamedataData");
+                    //loop the data in to xml file 
+                    writer.WriteElementString("PlayerOne","player One");
+                    //write the rest of the stock data to the file.
+                    for (int i = 0; i < playerOneList.Count; i++)
+                    {
+                        writer.WriteElementString("PlayerChoice", playerOneList[i]);
+                        i++;
+                        writer.WriteElementString("PlayerColor", playerOneList[i]);
+                        i++;
+                        writer.WriteElementString("PlayerLetter", playerOneList[i]);
+                    }
+                    writer.WriteElementString("PlayerTwo", "player two");
+
+                    for (int i = 0; i < playerTwoList.Count; i++)
+                    {
+                        writer.WriteElementString("PlayerChoice", playerTwoList[i]);
+                        i++;
+                        writer.WriteElementString("PlayerColor", playerTwoList[i]);
+                        i++;
+                        writer.WriteElementString("PlayerLetter", playerTwoList[i]);
+                    }
+
+                    // write the end element for the data
+                    writer.WriteEndElement();
+                }
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,6 +121,8 @@ namespace TicTacToe
         {
             player1Color = "Blue";
             player2Color = "Red";
+            blueToolStripMenuItem.Checked = true;
+            redToolStripMenuItem.Checked = false;
 
         }
 
@@ -72,36 +130,154 @@ namespace TicTacToe
         {
             player1Color = "Red";
             player2Color = "Blue";
+            redToolStripMenuItem.Checked = true;
+            blueToolStripMenuItem.Checked = false;
+
         }
 
         private void xToolStripMenuItem_Click(object sender, EventArgs e)
         {
             player1Letter = "X";
             player2Letter = "O";
+            xToolStripMenuItem.Checked = true;
+            oToolStripMenuItem.Checked = false;
+
+
+
         }
 
         private void oToolStripMenuItem_Click(object sender, EventArgs e)
         {
             player1Letter = "O";
             player2Letter = "X";
+            oToolStripMenuItem.Checked = true;
+            xToolStripMenuItem.Checked = false;
+
         }
-       
-        //private void WinnerCheck()
-        ////{
-        ////    bool winner = false
-        ////    If
-        //}
+
+        private void WinnerCheck(Button b)
+        {
+            //wins in a row
+            //row 1
+            if ((r1c1button.ImageIndex == b.ImageIndex) && (r1c2button.ImageIndex == b.ImageIndex )&&(r1c3button.ImageIndex==b.ImageIndex))
+            {
+                if (playerTurn == true)
+                {
+                    MessageBox.Show($"Player 2 is the winner");
+                }
+                else if(playerTurn==false)
+                {
+                    MessageBox.Show($"Player 1 is the winner");
+                }
+            }
+            else if ((r2c1button.ImageIndex == b.ImageIndex) && (r2c2button.ImageIndex ==b.ImageIndex)&&( r2c3button.ImageIndex==b.ImageIndex) )
+            {
+                if (playerTurn == true)
+                {
+                    MessageBox.Show($"Player 2 is the winner");
+                }
+                else
+                {
+                    MessageBox.Show($"Player 1 is the winner");
+                }
+            }
+            else if ((r3c1button.ImageIndex == b.ImageIndex) && (r3c2button.ImageIndex == b.ImageIndex) && (r3c3button.ImageIndex == b.ImageIndex))
+            {
+                if (playerTurn == true)
+                {
+                    MessageBox.Show($"Player 2 is the winner");
+                }
+                else
+                {
+                    MessageBox.Show($"Player 1 is the winner");
+                }
+            }
+            // vetrical wins
+            else if ((r1c1button.ImageIndex == b.ImageIndex) && (r2c1button.ImageIndex == b.ImageIndex) && (r3c1button.ImageIndex == b.ImageIndex) )
+            {
+                if (playerTurn == true)
+                {
+                    MessageBox.Show($"Player 2 is the winner");
+                }
+                else
+                {
+                    MessageBox.Show($"Playerc 1 is the winner");
+                }
+            }
+            else if ((r1c2button.ImageIndex == b.ImageIndex) && (r2c2button.ImageIndex == b.ImageIndex) && (r3c2button.ImageIndex == b.ImageIndex))
+            {
+                if (playerTurn == true)
+                {
+                    MessageBox.Show($"Player 2 is the winner");
+                }
+                else
+                {
+                    MessageBox.Show($"Playerc 1 is the winner");
+                }
+            }
+            else if ((r1c3button.ImageIndex == b.ImageIndex) && (r2c3button.ImageIndex == b.ImageIndex) && (r3c3button.ImageIndex == b.ImageIndex))
+            {
+                if (playerTurn == true)
+                {
+                    MessageBox.Show($"Player 2 is the winner");
+                }
+                else
+                {
+                    MessageBox.Show($"Playerc 1 is the winner");
+                }
+            }
+            else if ((r1c1button.ImageIndex == b.ImageIndex) && (r2c2button.ImageIndex == b.ImageIndex) && (r3c3button.ImageIndex == b.ImageIndex))
+            {
+                if (playerTurn == true)
+                {
+                    MessageBox.Show($"Player 2 is the winner");
+                }
+                else
+                {
+                    MessageBox.Show($"Playerc 1 is the winner");
+                }
+            }
+            else if ((r3c1button.ImageIndex == b.ImageIndex) && (r2c2button.ImageIndex == b.ImageIndex) && (r1c3button.ImageIndex == b.ImageIndex))
+            {
+                if (playerTurn == true)
+                {
+                    MessageBox.Show($"Player 2 is the winner");
+                }
+                else
+                {
+                    MessageBox.Show($"Playerc 1 is the winner");
+                }
+            }
+
+
+        }
 
         private void r1c1button_Click(object sender, EventArgs e)
         {
             Button b = (Button)sender;
 
+            int cont = 1;
+            
+            if (cont==1)
+            {
+                xToolStripMenuItem.Enabled = false;
+                oToolStripMenuItem.Enabled = false;
+                blueToolStripMenuItem.Enabled = false;
+                redToolStripMenuItem.Enabled = false;
+            }
+            cont++;
             if (playerTurn==true)
             {
                 if (player1Color == "Red" && player1Letter == "X")
                 {
                     b.ImageList = redImages;
                     b.ImageIndex = 1;
+                    string name = b.Name;
+                    string playerColor = "Red";
+                    string playerLetter = "x";
+                    playerOneList.Add(name);
+                    playerOneList.Add(playerColor);
+                    playerOneList.Add(playerLetter);
 
                 }
                 else if (player1Color == "Red" && player1Letter == "O")
@@ -109,28 +285,51 @@ namespace TicTacToe
 
                     b.ImageList = redImages;
                     b.ImageIndex = 0;
+                    string name = b.Name;
+                    string playerColor = "Red";
+                    string playerLetter = "x";
+                    playerOneList.Add(name);
+                    playerOneList.Add(playerColor);
+                    playerOneList.Add(playerLetter);
                 }
                 else if (player1Color == "Blue" && player1Letter == "O")
                 {
 
                     b.ImageList = blueImages;
                     b.ImageIndex = 0;
+                    string name = b.Name;
+                    string playerColor = "Red";
+                    string playerLetter = "x";
+                    playerOneList.Add(name);
+                    playerOneList.Add(playerColor);
+                    playerOneList.Add(playerLetter);
                 }
                 else if (player1Color == "Blue" && player1Letter == "X")
                 {
                     b.ImageList = blueImages;
                     b.ImageIndex = 1;
+                    string name = b.Name;
+                    string playerColor = "Red";
+                    string playerLetter = "x";
+                    playerOneList.Add(name);
+                    playerOneList.Add(playerColor);
+                    playerOneList.Add(playerLetter);
                 }
                 playerTurn = false;
             }
 
-            else
+            else if(playerTurn==false)
             {
 
                 if (player2Color == "Red" && player2Letter == "X")
                 {
                     b.ImageList = redImages;
                     b.ImageIndex = 1;
+                    string name = b.Name;
+                   
+                    playerTwoList.Add(name);
+                    playerTwoList.Add(player2Color);
+                    playerTwoList.Add(player2Letter);
 
                 }
                 else if (player2Color == "Red" && player2Letter == "O")
@@ -138,22 +337,77 @@ namespace TicTacToe
 
                     b.ImageList = redImages;
                     b.ImageIndex = 0;
+                    string name = b.Name;
+                    
+                    playerTwoList.Add(name);
+                    playerTwoList.Add(player2Color);
+                    playerTwoList.Add(player2Letter);
                 }
                 else if (player2Color == "Blue" && player2Letter == "O")
                 {
 
                     b.ImageList = blueImages;
                     b.ImageIndex = 0;
+                    string name = b.Name;
+                    
+                    playerTwoList.Add(name);
+                    playerTwoList.Add(player2Color);
+                    playerTwoList.Add(player2Letter);
+
                 }
-                else if (player2Color == "Blue" && player2Letter == "X")
+                else if ((player2Color == "Blue") && (player2Letter == "X"))
                 {
                     b.ImageList = blueImages;
                     b.ImageIndex = 1;
+                    string name = b.Name;
+                    
+                    playerTwoList.Add(name);
+                    playerTwoList.Add(player2Color);
+                    playerTwoList.Add(player2Letter);
                 }
                
                 playerTurn = true;
 
             }
+
+            WinnerCheck(b);
+        }
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            r1c1button.Enabled = true;
+            r1c2button.Enabled = true;
+            r1c3button.Enabled = true;
+            r2c1button.Enabled = true;
+            r2c2button.Enabled = true;
+            r2c3button.Enabled = true;
+            r3c1button.Enabled = true;
+            r3c2button.Enabled = true;
+            r3c3button.Enabled = true;
+            r1c1button.ImageIndex = -1;
+            r1c2button.ImageIndex = -1;
+            r1c3button.ImageIndex = -1;
+            r2c1button.ImageIndex = -1;
+            r2c2button.ImageIndex = -1;
+            r2c3button.ImageIndex = -1;
+            r3c1button.ImageIndex = -1;
+            r3c2button.ImageIndex = -1;
+            r3c3button.ImageIndex = -1;
+
+            player1Color = null;
+            player2Color = null;
+            player1Letter = null;
+            player2Letter = null;
+
+            playerTurn = true;
+            playerOneList = new List<string>();
+            playerTwoList = new List<string>();
+
+            xToolStripMenuItem.Enabled = true;
+            oToolStripMenuItem.Enabled = true;
+            blueToolStripMenuItem.Enabled = true;
+            redToolStripMenuItem.Enabled = true;
+
         }
     }
 }
