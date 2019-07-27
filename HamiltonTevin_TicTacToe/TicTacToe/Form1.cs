@@ -45,6 +45,8 @@ namespace TicTacToe
         public frmTicTacToe()
         {
             InitializeComponent();
+            HandleClientWindowSize();
+            //disable buttons 
             r1c1button.Enabled = false;
             r1c2button.Enabled = false;
             r1c3button.Enabled = false;
@@ -55,7 +57,22 @@ namespace TicTacToe
             r3c2button.Enabled = false;
             r3c3button.Enabled = false;
         }
+        void HandleClientWindowSize()
+        {
+            //Modify ONLY these float values
+            float HeightValueToChange = 1.4f;
+            float WidthValueToChange = 6.0f;
 
+            //DO NOT MODIFY THIS CODE
+            int height = Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Size.Height / HeightValueToChange);
+            int width = Convert.ToInt32(Screen.PrimaryScreen.WorkingArea.Size.Width / WidthValueToChange);
+            if (height < Size.Height)
+                height = Size.Height;
+            if (width < Size.Width)
+                width = Size.Width;
+            this.Size = new Size(width, height);
+            //this.Size = new Size(376, 720);
+        }
         private void loadGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -264,6 +281,7 @@ namespace TicTacToe
                 oToolStripMenuItem.Enabled = false;
                 blueToolStripMenuItem.Enabled = false;
                 redToolStripMenuItem.Enabled = false;
+                btnStart.Enabled = false;
             }
             cont++;
             if (playerTurn==true)
@@ -273,11 +291,9 @@ namespace TicTacToe
                     b.ImageList = redImages;
                     b.ImageIndex = 1;
                     string name = b.Name;
-                    string playerColor = "Red";
-                    string playerLetter = "x";
                     playerOneList.Add(name);
-                    playerOneList.Add(playerColor);
-                    playerOneList.Add(playerLetter);
+                    playerOneList.Add(player1Color);
+                    playerOneList.Add(player1Letter);
 
                 }
                 else if (player1Color == "Red" && player1Letter == "O")
@@ -286,11 +302,9 @@ namespace TicTacToe
                     b.ImageList = redImages;
                     b.ImageIndex = 0;
                     string name = b.Name;
-                    string playerColor = "Red";
-                    string playerLetter = "x";
                     playerOneList.Add(name);
-                    playerOneList.Add(playerColor);
-                    playerOneList.Add(playerLetter);
+                    playerOneList.Add(player1Color);
+                    playerOneList.Add(player1Letter);
                 }
                 else if (player1Color == "Blue" && player1Letter == "O")
                 {
@@ -298,31 +312,28 @@ namespace TicTacToe
                     b.ImageList = blueImages;
                     b.ImageIndex = 0;
                     string name = b.Name;
-                    string playerColor = "Red";
-                    string playerLetter = "x";
                     playerOneList.Add(name);
-                    playerOneList.Add(playerColor);
-                    playerOneList.Add(playerLetter);
+                    playerOneList.Add(player1Color);
+                    playerOneList.Add(player1Letter);
                 }
                 else if (player1Color == "Blue" && player1Letter == "X")
                 {
                     b.ImageList = blueImages;
                     b.ImageIndex = 1;
                     string name = b.Name;
-                    string playerColor = "Red";
-                    string playerLetter = "x";
                     playerOneList.Add(name);
-                    playerOneList.Add(playerColor);
-                    playerOneList.Add(playerLetter);
+                    playerOneList.Add(player1Color);
+                    playerOneList.Add(player1Letter);
                 }
                 playerTurn = false;
             }
 
             else if(playerTurn==false)
             {
-
+                //check for the color and letter
                 if (player2Color == "Red" && player2Letter == "X")
                 {
+                    //assign but info
                     b.ImageList = redImages;
                     b.ImageIndex = 1;
                     string name = b.Name;
@@ -369,21 +380,19 @@ namespace TicTacToe
                 playerTurn = true;
 
             }
-
+            //pass the button info into the ninnercheck method
             WinnerCheck(b);
         }
-
+        //newgame
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-            r1c1button.Enabled = true;
-            r1c2button.Enabled = true;
-            r1c3button.Enabled = true;
-            r2c1button.Enabled = true;
-            r2c2button.Enabled = true;
-            r2c3button.Enabled = true;
-            r3c1button.Enabled = true;
-            r3c2button.Enabled = true;
-            r3c3button.Enabled = true;
+            //clear all checked buttons
+            blueToolStripMenuItem.Checked = false;
+            redToolStripMenuItem.Checked = false;
+            xToolStripMenuItem.Checked = false;
+            oToolStripMenuItem.Checked = false;
+
+            //remove button image.
             r1c1button.ImageIndex = -1;
             r1c2button.ImageIndex = -1;
             r1c3button.ImageIndex = -1;
@@ -393,21 +402,41 @@ namespace TicTacToe
             r3c1button.ImageIndex = -1;
             r3c2button.ImageIndex = -1;
             r3c3button.ImageIndex = -1;
-
+            //set all playe data to null 
             player1Color = null;
             player2Color = null;
             player1Letter = null;
             player2Letter = null;
-
+             //set player values to start values
             playerTurn = true;
             playerOneList = new List<string>();
             playerTwoList = new List<string>();
-
+            //enabled color and x or O selection
             xToolStripMenuItem.Enabled = true;
             oToolStripMenuItem.Enabled = true;
             blueToolStripMenuItem.Enabled = true;
             redToolStripMenuItem.Enabled = true;
 
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            if (((blueToolStripMenuItem.Checked != false) || (redToolStripMenuItem.Checked != false))&& ((xToolStripMenuItem.Checked != false) || (oToolStripMenuItem.Checked != false)))
+            {
+                //enabled selections buttons
+                r1c1button.Enabled = true;
+                r1c2button.Enabled = true;
+                r1c3button.Enabled = true;
+                r2c1button.Enabled = true;
+                r2c2button.Enabled = true;
+                r2c3button.Enabled = true;
+                r3c1button.Enabled = true;
+                r3c2button.Enabled = true;
+                r3c3button.Enabled = true;
+
+                
+            }
+           
         }
     }
 }

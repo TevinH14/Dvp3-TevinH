@@ -16,3 +16,4 @@ c:\users\lee lewis\documents\visual studio 2017\Projects\TicTacToe\TicTacToe\obj
 \\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_TicTacToe\TicTacToe\obj\Debug\TicTacToe.csproj.CoreCompileInputs.cache
 \\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_TicTacToe\TicTacToe\obj\Debug\TicTacToe.exe
 \\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_TicTacToe\TicTacToe\obj\Debug\TicTacToe.pdb
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_TicTacToe\TicTacToe\obj\Debug\TicTacToe.Properties.Resources.resources
