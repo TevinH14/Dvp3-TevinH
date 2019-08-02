@@ -73,9 +73,29 @@ namespace HamiltonTevin_FinalProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap agnieszka_kowalczyk_c0VRNWVEjOA_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("agnieszka-kowalczyk-c0VRNWVEjOA-unsplash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap casey_horner_RmoWqDCqN2E_unsplash {
             get {
                 object obj = ResourceManager.GetObject("casey-horner-RmoWqDCqN2E-unsplash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap guille_pozzi_sbcIAn4Mn14_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("guille-pozzi-sbcIAn4Mn14-unsplash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +116,16 @@ namespace HamiltonTevin_FinalProject.Properties {
         internal static System.Drawing.Bitmap iPhone7Image_copy {
             get {
                 object obj = ResourceManager.GetObject("iPhone7Image copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ivana_cajina_asuyh__ZX54_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("ivana-cajina-asuyh-_ZX54-unsplash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
