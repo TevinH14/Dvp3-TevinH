@@ -63,6 +63,26 @@ namespace HamiltonTevin_FinalProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _594F3651F9CAA95C {
+            get {
+                object obj = ResourceManager.GetObject("594F3651F9CAA95C", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap casey_horner_RmoWqDCqN2E_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("casey-horner-RmoWqDCqN2E-unsplash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iPhone7Image {
             get {
                 object obj = ResourceManager.GetObject("iPhone7Image", resourceCulture);

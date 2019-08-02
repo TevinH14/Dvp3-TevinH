@@ -36,5 +36,14 @@ namespace HamiltonTevin_FinalProject
             //this.Size = new Size(376, 720);
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

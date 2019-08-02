@@ -95,5 +95,11 @@
   <ItemGroup>
     <None Include="Resources\iPhone7Image.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\casey-horner-RmoWqDCqN2E-unsplash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\594F3651F9CAA95C.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
