@@ -38,12 +38,16 @@ namespace HamiltonTevin_FinalProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            Login returningUser = new Login();
+            returningUser.Show();
+          
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-
+            SignUp newUser = new SignUp();
+            newUser.Show();
+            
         }
     }
 }

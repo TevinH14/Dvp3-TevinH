@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txtLName = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtFName = new System.Windows.Forms.TextBox();
             this.btnDone = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -40,6 +40,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -53,36 +55,37 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // txtUserName
             // 
-            this.textBox1.Location = new System.Drawing.Point(230, 562);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(350, 31);
-            this.textBox1.TabIndex = 1;
+            this.txtUserName.Location = new System.Drawing.Point(217, 514);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(350, 31);
+            this.txtUserName.TabIndex = 1;
             // 
-            // textBox2
+            // txtLName
             // 
-            this.textBox2.Location = new System.Drawing.Point(230, 715);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(350, 31);
-            this.textBox2.TabIndex = 2;
+            this.txtLName.Location = new System.Drawing.Point(217, 667);
+            this.txtLName.Name = "txtLName";
+            this.txtLName.Size = new System.Drawing.Size(350, 31);
+            this.txtLName.TabIndex = 2;
             // 
-            // textBox3
+            // txtEmail
             // 
-            this.textBox3.Location = new System.Drawing.Point(230, 777);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(350, 31);
-            this.textBox3.TabIndex = 3;
+            this.txtEmail.Location = new System.Drawing.Point(217, 729);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(350, 31);
+            this.txtEmail.TabIndex = 3;
             // 
-            // textBox4
+            // txtFName
             // 
-            this.textBox4.Location = new System.Drawing.Point(230, 637);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(350, 31);
-            this.textBox4.TabIndex = 4;
+            this.txtFName.Location = new System.Drawing.Point(217, 589);
+            this.txtFName.Name = "txtFName";
+            this.txtFName.Size = new System.Drawing.Size(350, 31);
+            this.txtFName.TabIndex = 4;
             // 
             // btnDone
             // 
+            this.btnDone.AutoSize = true;
             this.btnDone.Location = new System.Drawing.Point(155, 892);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(351, 80);
@@ -105,9 +108,9 @@
             // 
             this.pictureBox2.BackgroundImage = global::HamiltonTevin_FinalProject.Properties.Resources.guille_pozzi_sbcIAn4Mn14_unsplash;
             this.pictureBox2.Image = global::HamiltonTevin_FinalProject.Properties.Resources._594F3651F9CAA95C;
-            this.pictureBox2.Location = new System.Drawing.Point(217, 210);
+            this.pictureBox2.Location = new System.Drawing.Point(217, 206);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(242, 282);
+            this.pictureBox2.Size = new System.Drawing.Size(230, 264);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
@@ -115,7 +118,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 565);
+            this.label1.Location = new System.Drawing.Point(92, 517);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 25);
             this.label1.TabIndex = 8;
@@ -124,7 +127,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(159, 780);
+            this.label2.Location = new System.Drawing.Point(146, 732);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 25);
             this.label2.TabIndex = 9;
@@ -133,7 +136,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(109, 718);
+            this.label3.Location = new System.Drawing.Point(96, 670);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 25);
             this.label3.TabIndex = 10;
@@ -142,11 +145,27 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(109, 640);
+            this.label4.Location = new System.Drawing.Point(96, 592);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 25);
             this.label4.TabIndex = 11;
             this.label4.Text = "FirstName:";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(217, 783);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(350, 31);
+            this.txtPassword.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(106, 786);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 25);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Password";
             // 
             // SignUp
             // 
@@ -155,6 +174,8 @@
             this.BackgroundImage = global::HamiltonTevin_FinalProject.Properties.Resources.iPhone7Image_copy;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(661, 1280);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -162,10 +183,10 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDone);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFName);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtLName);
+            this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SignUp";
@@ -180,10 +201,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txtLName;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtFName;
         private System.Windows.Forms.Button btnDone;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -191,5 +212,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label5;
     }
 }
