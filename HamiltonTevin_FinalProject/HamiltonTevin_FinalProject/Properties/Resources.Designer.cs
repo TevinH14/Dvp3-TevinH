@@ -63,9 +63,39 @@ namespace HamiltonTevin_FinalProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2015StarWarsGallery_QuiGonJinn_Press_131115_920x610 {
+            get {
+                object obj = ResourceManager.GetObject("2015StarWarsGallery_QuiGonJinn_Press_131115-920x610", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _562bdc05a61332859abb7442b5090cc1 {
+            get {
+                object obj = ResourceManager.GetObject("562bdc05a61332859abb7442b5090cc1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _594F3651F9CAA95C {
             get {
                 object obj = ResourceManager.GetObject("594F3651F9CAA95C", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _70988b {
+            get {
+                object obj = ResourceManager.GetObject("70988b", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +116,16 @@ namespace HamiltonTevin_FinalProject.Properties {
         internal static System.Drawing.Bitmap casey_horner_RmoWqDCqN2E_unsplash {
             get {
                 object obj = ResourceManager.GetObject("casey-horner-RmoWqDCqN2E-unsplash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FM_Star_Wars {
+            get {
+                object obj = ResourceManager.GetObject("FM_Star-Wars", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +166,26 @@ namespace HamiltonTevin_FinalProject.Properties {
         internal static System.Drawing.Bitmap ivana_cajina_asuyh__ZX54_unsplash {
             get {
                 object obj = ResourceManager.GetObject("ivana-cajina-asuyh-_ZX54-unsplash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mustafar_tall {
+            get {
+                object obj = ResourceManager.GetObject("mustafar-tall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap N_1_Starfighter {
+            get {
+                object obj = ResourceManager.GetObject("N-1_Starfighter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

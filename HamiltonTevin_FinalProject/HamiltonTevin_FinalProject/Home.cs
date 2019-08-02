@@ -16,5 +16,35 @@ namespace HamiltonTevin_FinalProject
         {
             InitializeComponent();
         }
+
+        private void pbC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbF_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbV_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbSS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbS_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

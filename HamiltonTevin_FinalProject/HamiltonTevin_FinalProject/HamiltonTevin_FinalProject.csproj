@@ -99,6 +99,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LandScapeView.resx">
       <DependentUpon>LandScapeView.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +154,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ivana-cajina-asuyh-_ZX54-unsplash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2015StarWarsGallery_QuiGonJinn_Press_131115-920x610.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FM_Star-Wars.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\562bdc05a61332859abb7442b5090cc1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\N-1_Starfighter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mustafar-tall.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\70988b.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
