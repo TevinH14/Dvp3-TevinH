@@ -30,9 +30,9 @@ namespace apiTest
 
            // string sdf = p["name"].ToString() ;
 
-            string specificsName = o["Results"][0]["name"].ToString();
-            string name = specificsName;
-            MessageBox.Show(name);
+            //string specificsName = o["Results"][0]["name"].ToString();
+            //string name = specificsName;
+            MessageBox.Show(p);
         }
 
         public static object Unirest { get; set; }

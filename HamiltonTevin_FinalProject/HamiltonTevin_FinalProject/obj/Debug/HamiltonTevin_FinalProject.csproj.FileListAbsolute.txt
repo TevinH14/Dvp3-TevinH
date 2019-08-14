@@ -22,3 +22,5 @@
 \\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_FinalProject\HamiltonTevin_FinalProject\bin\Debug\MySql.Data.xml
 \\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_FinalProject\HamiltonTevin_FinalProject\bin\Debug\Renci.SshNet.xml
 \\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_FinalProject\HamiltonTevin_FinalProject\obj\Debug\HamiltonTevin_FinalProject.csproj.CopyComplete
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_FinalProject\HamiltonTevin_FinalProject\bin\Debug\Newtonsoft.Json.dll
+\\vmware-host\Shared Folders\Desktop\Dvp3-TevinH\HamiltonTevin_FinalProject\HamiltonTevin_FinalProject\bin\Debug\Newtonsoft.Json.xml
